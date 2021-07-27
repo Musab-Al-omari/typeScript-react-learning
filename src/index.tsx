@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom";
+import Parents from "./props/Parents";
+import { FindUser } from "./refs/FindUser";
+import { GestList } from "./state/GestList";
+function App() {
+    const dragHandler: React.DragEventHandler<HTMLDivElement> | undefined = (event) => {
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+        console.log(event);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+    }
+
+    return (<div>
+        <h1>hello there </h1>
+        <div>
+            <Parents />
+            <FindUser />
+            <GestList />
+
+            <div draggable onDragStart={dragHandler}>i am  draggable </div>
+        </div>
+    </div>)
+
+}
+
+ReactDOM.render(<App />, document.querySelector('#root'))
